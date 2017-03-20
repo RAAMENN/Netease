@@ -14,6 +14,7 @@
 
         close.addEventListener('click', function(event) {
             setCookie('no', 1, '5');
+            tips.style.display = 'none';
         });
         
     })();
