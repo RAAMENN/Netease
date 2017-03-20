@@ -8,16 +8,14 @@
 
         var cookie = getCookie('no');
 
-        if (!cookie) {
-            tips.style.display = 'block';
+        if (!!cookie) {
+            tips.style.display = 'none';
         }
 
         close.addEventListener('click', function(event) {
             setCookie('no', 1, '5');
-            tips.style.display = 'none';
-            console.log('closed');
         });
-
+        
     })();
 
 
@@ -30,8 +28,7 @@ function getCookie(c_name) {
         var arr2 = arr[i].split('=');
 
         if (arr2[0] === c_name) {
-            console.log(arr2[i]);
-            return arr2[i];
+            return arr2[1];
         }
     }
 
@@ -43,5 +40,9 @@ function setCookie(c_name,value,expiredays) {
 	oDate.setDate(oDate.getDate()+expiredays);
 
 	document.cookie=c_name+'='+value+';expires='+oDate;
+	console.log(oDate);
+}
 
+function deleteCookie(c_name){
+	setCookie(c_name,1,-1);
 }
