@@ -1,0 +1,204 @@
+/* css reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* 清除浮动 */
+
+.container:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+
+body{
+	width: 1450px;
+}
+/* 顶部提示 */
+.tips{
+	background: #f0f0f0;
+	font-family: Microsoft Yahei;
+	font-size: 13px;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 160px;
+}
+
+.tips .content p{
+	color: #484848;
+	display: inline-block;
+}
+
+.tips a{
+	color: #319f52;
+}
+
+.tips span{
+	float: right;
+	margin-right: 160px;
+	padding-left: 15px;
+	background: url('微专业WEB前端开发作业/close.png') 0px 15px no-repeat;
+	cursor: pointer;
+	color: #484848;
+}
+/* 头部css设置 */
+
+header {
+    width: 100%;
+}
+
+
+/* 导航条整体设置 */
+
+header nav {
+    height: 100px;
+}
+
+header nav #logo {
+    float: left;
+    margin-left: 160px;
+    line-height: 100px;
+}
+
+header nav #navbar {
+    float: right;
+}
+
+
+/* 导航条logo部分设置 */
+
+
+/* edu */
+
+header nav #logo #green {
+    font-family: Gill Sans MT;
+    color: #309224;
+    font-size: 28px;
+    font-weight: bold;
+    display: inline-block;
+    width: 75px;
+    background: url('微专业WEB前端开发作业/verticalLine.png') 70px no-repeat;
+    vertical-align: middle;
+}
+
+
+/* logo */
+
+header nav #logo #normal {
+    font-family: Hiragino Sans GB;
+    font-size: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* 关注 */
+
+header nav #logo #follow a {
+    background: #209845;
+    color: #fff;
+    font-family: SimSun;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 20px;
+    border-radius: 2px;
+    text-align: center;
+    margin-left: 30px;
+    padding: 0 8px;
+}
+
+header nav #logo #follow a:hover {
+    background: #2aab44;
+}
+
+
+/* 已关注，默认不显示 */
+
+header nav #logo #followed {
+    display: inline-block;
+    font-size: 12px;
+    font-family: SimSun;
+    background: #f7f7f7;
+    line-height: 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 2px;
+    padding: 0 8px;
+    display: none;
+}
+
+header nav #logo #followed:hover {
+    background: #fff;
+}
+
+header nav #logo #followed #cancel {
+    color: #9d9d9d;
+    padding-left: 5px;
+}
+
+header nav #logo #followed #cancel:hover {
+    color: #128e23;
+    text-decoration: underline;
+}
+
+
+/* 粉丝数 */
+
+header nav #logo #followed i {
+    display: inline-block;
+    background: #ccc;
+    width: 1px;
+    height: 10px;
+    margin-left: 5px;
+    vertical-align: baseline;
+}
+
+header nav #logo #follower {
+    color: #525252;
+    font-size: 12px;
+    font-family: SimSun;
+    margin-left: 10px;
+}
+
+
+/* navbar部分设置 */
+
+
+/* ul */
+
+header nav #navbar ul {
+    margin-right: 200px;
+}
+
+header nav #navbar ul li {
+    padding: 0 30px;
+    display: inline-block;
+    line-height: 100px;
+}
+
+header nav #navbar ul li a:hover {
+    color: #309324;
+    cursor: pointer;
+}
+
+header nav #navbar ul li a {
+    color: #7d7d7d;
+    font-family: Hiragino Sans GB;
+    font-size: 16px;
+}
+
+
+/* 搜索 */
+
+header nav #navbar img {
+    float: right;
+    margin-right: 180px;
+    margin-top: 40px;
+}
+
+/* 轮播图 */
