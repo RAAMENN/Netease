@@ -47,7 +47,7 @@ function setCookie(c_name,value,expiredays) {
 
 // 轮播图
 (function(){
-    var carousel=document.querySelector('#carousel');
+    var carousel=document.getElementById('carousel');
     var oUl=carousel.getElementsByClassName('m-slider')[0];
     var aLi=oUl.getElementsByTagName('li');
     var order=document.getElementById('order');
