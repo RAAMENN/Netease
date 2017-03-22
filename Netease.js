@@ -1,3 +1,4 @@
+// 关闭提示
 (function() {
 
 
@@ -44,6 +45,56 @@ function setCookie(c_name,value,expiredays) {
 	console.log(oDate);
 }
 
-function deleteCookie(c_name){
-	setCookie(c_name,1,-1);
-}
+// 轮播图
+(function(){
+    var carousel=document.querySelector('#carousel');
+    var oUl=carousel.getElementsByClassName('m-slider')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var order=document.getElementById('order');
+    var index=0;
+    var timer;
+    for(var i=0;i<aLi.length;i++){
+        var newLi=document.createElement('li');
+        order.appendChild(newLi);
+    }
+
+    var orderLi=order.getElementsByTagName('li');
+    orderLi[0].className='selected';
+
+    function move(index){
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className='';
+            orderLi[i].className='';
+        }
+        aLi[index].className='selected';
+        orderLi[index].className='selected';
+    }
+
+    function automove(){
+        timer=setInterval(function(){
+            index++;
+            if(index===aLi.length){
+                index=0;
+            }
+            move(index);
+        },5000);
+    }
+
+    automove();
+
+    carousel.onmouseover=function(){
+        clearInterval(timer);
+    };
+
+    carousel.onmouseout=function(){
+        automove();
+    };
+
+    for(var i=0;i<aLi.length;i++){
+        orderLi[i].index=i;
+        orderLi[i].onmouseover=function(){
+            index=this.index;
+            move(index);
+        };
+    }
+})();

@@ -202,3 +202,38 @@ header nav #navbar img {
 }
 
 /* 轮播图 */
+#carousel{
+    position: relative;
+    width: 100%;
+    height: 460px;
+}
+
+#carousel .m-slider li{
+    position: absolute;
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+#order {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 420px;
+}
+#order li{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#order li.selected{
+    background: #fff;
+}
+#carousel .m-slider li.selected{
+    display: block;
+    opacity: 1;
+}
