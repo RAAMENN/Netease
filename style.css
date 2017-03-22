@@ -18,7 +18,7 @@
 }
 
 body{
-	width: 1450px;
+	width: 1640px;
 }
 /* 顶部提示 */
 .tips{
@@ -213,8 +213,9 @@ header nav #navbar img {
     opacity: 0;
     transition: all 5s ease;
 }
+
 #carousel .m-slider li img{
-    max-width: 1450px;
+    max-width: 1640px;
 }
 #order {
     width: 100%;
@@ -244,8 +245,7 @@ header nav #navbar img {
 
 #info{
     display: flex;
-    width: 1332px;
-    margin:70px auto;
+    margin:70px 100px;
 }
 #info .product{
     flex: 1;
@@ -282,4 +282,14 @@ header nav #navbar img {
 
 #info .product .content span a:hover{
     text-decoration: underline;
+}
+
+/* 图库 */
+.gallery{
+    display: flex;
+    width: 100%;
+}
+
+.gallery img+img{
+    margin-left: 10px;
 }
