@@ -211,14 +211,16 @@ header nav #navbar img {
 #carousel .m-slider li{
     position: absolute;
     opacity: 0;
-    transition: all 2s ease;
+    transition: all 5s ease;
 }
-
+#carousel .m-slider li img{
+    max-width: 1450px;
+}
 #order {
     width: 100%;
     position: absolute;
     text-align: center;
-    top: 420px;
+    top: 380px;
 }
 #order li{
     display: inline-block;
@@ -236,4 +238,48 @@ header nav #navbar img {
 #carousel .m-slider li.selected{
     display: block;
     opacity: 1;
+}
+
+/* 产品内容 */
+
+#info{
+    display: flex;
+    width: 1332px;
+    margin:70px auto;
+}
+#info .product{
+    flex: 1;
+    margin: 0 40px;
+}
+#info .product img{
+    float: left;
+    margin-top: 10px;
+}
+
+#info .product .content{
+    margin-left: 100px;
+    font-family: Microsoft Yahei;
+}
+
+#info .product .content h3{
+    font-size: 22px;
+    font-weight: normal;
+    color: #2f2f2f;
+    margin-bottom: 10px;
+}
+
+#info .product .content p{
+    font-size: 14px;
+    color: #818181;
+    margin-bottom: 20px;
+    line-height: 1.8em;
+}
+
+#info .product .content span a{
+    color: #52a24a;
+    font-size: 14px;
+}
+
+#info .product .content span a:hover{
+    text-decoration: underline;
 }
