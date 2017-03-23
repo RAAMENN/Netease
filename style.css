@@ -288,8 +288,153 @@ header nav #navbar img {
 .gallery{
     display: flex;
     width: 100%;
+    margin-bottom: 100px;
 }
 
 .gallery img+img{
     margin-left: 10px;
+}
+
+/* 内容区 */
+
+#mainbody{
+    width: 1400px;
+    margin: 0 auto;
+}
+
+#mainbody main{
+    float: left;
+    width: 1100px;
+}
+
+#mainbody aside{
+    margin-left: 1100px;
+    border: 1px solid #ccc;
+}
+
+#mainbody main h3{
+    width: 400px;
+    height: 50px;
+    box-shadow: 1px 1px 1px;
+    display: flex;
+    text-align: center;
+    font-family: Microsoft Yahei;
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+
+#mainbody main h3 div{
+    flex: 1;
+    line-height: 50px;
+    cursor: pointer;
+    color: #535353;
+}
+
+#mainbody main h3 div.selected{
+    background: #2c941d;
+    color: #fff;
+}
+
+#mainbody main ul li{
+    display: inline-block;
+    width: 222px;
+    height: 220px;
+    border: 1px solid #ccc;
+    margin: 0px 20px 20px 0;
+    box-shadow: 0px 1px 1px #ccc;
+    vertical-align: middle;
+    font-size: 12px;
+    font-family: Microsoft Yahei;
+    cursor: pointer;
+}
+
+#mainbody main ul li.special{
+    width: 464px;
+}
+
+
+
+#mainbody main ul li.special img{
+    float: left;
+}
+
+#mainbody main ul li.special .content{
+    margin-left: 240px;
+}
+
+#mainbody main ul li.special span.p{
+    display: inline-block;
+}
+#mainbody main ul li.special p{
+    display: block;
+    font-size: 14px;
+    background: #f7f7f7;
+    width: 100%;
+    margin-top: 30px;
+    height: 80px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    padding: 15px;
+    line-height: 30px;
+}
+#mainbody main ul li p,#mainbody main ul li span.p{
+    display: none;
+}
+#mainbody main ul li img{
+    min-width: 220px;
+    max-width: 220px;
+    max-height: 124px;
+}
+
+#mainbody main ul li .content{
+    margin-left: 5px;
+}
+#mainbody main ul li h4{
+    color: #3f3f3f;
+    font-weight: normal;
+    margin-bottom: 5px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+#mainbody main ul li.special h4{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#mainbody main ul li span{
+    display: block;
+    margin-bottom: 5px;
+    color: #bfbfbf;
+}
+
+#mainbody main ul li.special span{
+    color: #686868;
+}
+
+#mainbody main ul li .number{
+    padding: 2px 5px 2px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: url('微专业WEB前端开发作业/peopleIcon.png') 0px 2px no-repeat;
+    display: inline-block;
+}
+
+#mainbody main ul li.special .number{
+    border: none;
+    padding: 2px 5px 2px 15px;
+    margin-left: -3px;
+}
+
+#mainbody main ul li .price{
+    color: #fc310f;
+    font-weight: bold;
+}
+
+#mainbody main ul li.special .price{
+    display: none;
 }

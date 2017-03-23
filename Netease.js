@@ -17,84 +17,150 @@
             setCookie('no', 1, '5');
             tips.style.display = 'none';
         });
-        
+
     })();
 
 
 })();
 
-function getCookie(c_name) {
-    var arr = document.cookie.split(';');
 
-    for (var i = 0; i < arr.length; i++) {
-        var arr2 = arr[i].split('=');
-
-        if (arr2[0] === c_name) {
-            return arr2[1];
-        }
-    }
-
-    return '';
-}
-
-function setCookie(c_name,value,expiredays) {
-	var oDate=new Date();
-	oDate.setDate(oDate.getDate()+expiredays);
-
-	document.cookie=c_name+'='+value+';expires='+oDate;
-	console.log(oDate);
-}
 
 // 轮播图
-(function(){
-    var carousel=document.getElementById('carousel');
-    var oUl=carousel.getElementsByClassName('m-slider')[0];
-    var aLi=oUl.getElementsByTagName('li');
-    var order=document.getElementById('order');
-    var index=0;
+(function() {
+    var carousel = document.getElementById('carousel');
+    var oUl = carousel.getElementsByClassName('m-slider')[0];
+    var aLi = oUl.getElementsByTagName('li');
+    var order = document.getElementById('order');
+    var index = 0;
     var timer;
-    for(var i=0;i<aLi.length;i++){
-        var newLi=document.createElement('li');
+    for (var i = 0; i < aLi.length; i++) {
+        var newLi = document.createElement('li');
         order.appendChild(newLi);
     }
 
-    var orderLi=order.getElementsByTagName('li');
-    orderLi[0].className='selected';
+    var orderLi = order.getElementsByTagName('li');
+    orderLi[0].className = 'selected';
 
-    function move(index){
-        for(var i=0;i<aLi.length;i++){
-            aLi[i].className='';
-            orderLi[i].className='';
+    function move(index) {
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            orderLi[i].className = '';
         }
-        aLi[index].className='selected';
-        orderLi[index].className='selected';
+        aLi[index].className = 'selected';
+        orderLi[index].className = 'selected';
     }
 
-    function automove(){
-        timer=setInterval(function(){
+    function automove() {
+        timer = setInterval(function() {
             index++;
-            if(index===aLi.length){
-                index=0;
+            if (index === aLi.length) {
+                index = 0;
             }
             move(index);
-        },5000);
+        }, 5000);
     }
 
     automove();
 
-    carousel.onmouseover=function(){
+    carousel.onmouseover = function() {
         clearInterval(timer);
     };
 
-    carousel.onmouseout=function(){
+    carousel.onmouseout = function() {
         automove();
     };
 
-    for(var i=0;i<aLi.length;i++){
-        orderLi[i].index=i;
-        orderLi[i].onmouseover=function(){
-            index=this.index;
+    for (var i = 0; i < aLi.length; i++) {
+        orderLi[i].index = i;
+        orderLi[i].onmouseover = function() {
+            index = this.index;
             move(index);
         };
     }
 })();
+// 产品列表标题
+(function() {
+    var oMain = document.getElementById('mainbody');
+    var aDiv = oMain.getElementsByTagName('div');
+
+    createLi('10');
+
+    for (var i = 0; i < aDiv.length; i++) {
+        aDiv[i].index = i;
+        aDiv[i].onclick = function() {
+            for (var j = 0; j < aDiv.length; j++) {
+                aDiv[j].className = '';
+            }
+            this.className = 'selected';
+
+            if (this.index === 0) {
+                createLi('10');
+            } else {
+                createLi('20');
+            }
+        };
+    }
+
+})();
+//产品列表
+function createLi(type) {
+    var oMain = document.getElementById('mainbody');
+    var oTitle = oMain.getElementsByClassName('title');
+    var oUl = oMain.getElementsByTagName('ul')[0];
+    var aLi = oUl.getElementsByTagName('li');
+
+
+    ajax({
+        url: "http://study.163.com/webDev/couresByCategory.htm", //请求地址
+        type: 'GET', //请求方式
+        data: { pageNo: '1', psize: '20', type: type }, //请求参数
+        dataType: "json", // 返回值类型的设定
+        async: true, //是否异步
+        success: function(response) {
+            var got = JSON.parse(response).list; //   此处执行请求成功后的代码
+            console.log(got);
+            var url, title, provider, price, number;
+            oUl.innerHTML = '';
+
+            for (var i = 0; i < got.length; i++) {
+                var oLi = document.createElement('li');
+                oLi.className = 'lessonlist';
+                oLi.innerHTML = '<img src="' + got[i].middlePhotoUrl + '" alt="pic" /><div class="content"><h4>' + got[i].name + '</h4><span class="provider"><span class="p">发布者：</span>' + got[i].provider + '</span><span class="number">' + got[i].learnerCount + '</span><span class="price">¥ ' + got[i].price + '.00</span></div><p class="des">'+got[i].description+'</p></li>';
+                oUl.appendChild(oLi);
+            }
+            changeSize();
+
+        },
+        fail: function(status) {
+            console.log('状态码为' + status); // 此处为执行失败后的代码
+        }
+    });
+}
+
+
+function changeSize(){
+        var oMain = document.getElementById('mainbody');
+        var oUl = oMain.getElementsByTagName('ul')[0];
+        var aLi = oUl.getElementsByTagName('li');
+    for (var i = 0; i < aLi.length; i++) {
+                aLi[i].index = i;
+                var holder;
+                aLi[i].onmouseover = function() {
+                    aLi[this.index].className = 'special';
+                    if ((this.index + 1) % 4 === 0) {
+                        aLi[this.index].previousSibling.style.display = 'none';
+                    } else {
+                        aLi[this.index].nextSibling.style.display = 'none';
+                    }
+                };
+
+                aLi[i].onmouseout = function(){
+                    aLi[this.index].className ='';
+                    if ((this.index + 1) % 4 === 0) {
+                        aLi[this.index].previousSibling.style.display = 'inline-block';
+                    } else {
+                        aLi[this.index].nextSibling.style.display = 'inline-block';
+                    }
+                };
+            }
+}
