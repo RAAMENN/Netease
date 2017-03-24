@@ -324,7 +324,7 @@ header nav #navbar img {
 }
 
 #mainbody aside {
-    margin-left: 970px;
+    margin-left: 1000px;
 }
 
 #mainbody main h3 {
@@ -339,14 +339,14 @@ header nav #navbar img {
     margin-bottom: 30px;
 }
 
-#mainbody main h3 div {
+#mainbody main h3 span {
     flex: 1;
     line-height: 50px;
     cursor: pointer;
     color: #535353;
 }
 
-#mainbody main h3 div.selected {
+#mainbody main h3 span.selected {
     background: #2c941d;
     color: #fff;
 }

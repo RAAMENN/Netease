@@ -81,7 +81,7 @@
 // 产品列表标题
 (function() {
     var oMain = document.getElementById('mainbody');
-    var aDiv = oMain.getElementsByTagName('div');
+    var aDiv = oMain.getElementsByTagName('span');
     var pagenav = document.getElementsByClassName('pagenav')[0];
     var oPage = pagenav.getElementsByClassName('page');
 
@@ -175,7 +175,7 @@ function changeSize() {
 // 分页
 function changePage() {
     var oMain = document.getElementById('mainbody');
-    var aDiv = oMain.getElementsByTagName('div');
+    var aDiv = oMain.getElementsByTagName('span');
     var pagenav = document.getElementsByClassName('pagenav')[0];
     var oPage = pagenav.getElementsByClassName('page');
 
@@ -218,7 +218,7 @@ function changeNav() {
 
 function clickNav(){
     var oMain = document.getElementById('mainbody');
-    var aDiv = oMain.getElementsByTagName('div');
+    var aDiv = oMain.getElementsByTagName('span');
     var pagenav = document.getElementsByClassName('pagenav')[0];
     var oPage = pagenav.getElementsByClassName('page');
     var oPrev = document.getElementById('prev');
