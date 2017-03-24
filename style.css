@@ -6,9 +6,12 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    cursor: default;
 }
 
-
+a{
+    cursor: pointer;
+}
 /* 清除浮动 */
 
 .container:after {
@@ -496,4 +499,80 @@ header nav #navbar img {
     color: #fff;
     width: 30px;
     font-size: 16px;
+}
+
+#mainbody aside .introduce{
+    border: 1px solid #ccc;
+    width: 220px;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+#mainbody aside .introduce h3{
+    font-size: 16px;
+    font-weight: normal;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+#mainbody aside .introduce .video{
+    text-align: center;
+    padding: 10px 10px;
+}
+
+#mainbody aside .introduce .video p{
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 10px;
+}
+
+#mainbody aside .introduce .video img{
+    cursor: pointer;
+}
+
+.outer{
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.m-video {
+    position: relative;
+    margin: 0 auto;
+    width: 890px;
+    height: 616px;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.m-video video{
+    margin-top: 22px;
+}
+
+.m-video .title{
+    font-size: 18px;
+    color: #444444;
+}
+
+.m-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: url('微专业WEB前端开发作业/background.png')
+}
+.m-video .closed {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    width: 23px;
+    height: 22px;
+    text-indent: -9999px;
+    background: url('微专业WEB前端开发作业/closevideo.png') no-repeat;
+    cursor: pointer;
 }

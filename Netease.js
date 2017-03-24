@@ -267,8 +267,24 @@ function clickNav(){
     changePage();
 }
 
+function playVideo(){
+    var oMask=document.getElementsByClassName('m-mask')[0];
+    var oBtn=oMask.getElementsByClassName('closed')[0];
+    var oVideo=document.getElementsByClassName('video')[0];
+    var oImg=oVideo.getElementsByTagName('img')[0];
+
+    oImg.onclick=function(){
+        oMask.style.display='block';
+    };
+
+    oBtn.onclick=function(){
+        oMask.style.display='none';
+    };
+}
+
 function initial(){
     clickNav();
+    playVideo();
 }
 
 initial();
