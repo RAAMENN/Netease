@@ -20,7 +20,7 @@
             <div id="logo">
                 <span id="green">EDU</span>
                 <span id="normal">网易教育产品部</span>
-                <span id="follow"><a href="#">+关注</a></span>
+                <span id="follow">+关注</span>
                 <div id="followed">✓已关注<i></i><a href="#" id="cancel">取消</a></div>
                 <span id="follower">粉丝&nbsp;45</span>
             </div>
@@ -116,16 +116,68 @@
                     <img src="微专业WEB前端开发作业/video.png" alt="机构介绍">
                 </div>
             </div>
+            <div class="hot">
+                <h3>最热排行</h3>
+                <div id="hotlist">
+                    <ul>
+                        <!-- <img src="" alt="">
+                        <h4 class="hotTitle"></h4>
+                        <span class="study"></span> -->
+                    </ul>
+                </div>
+            </div>
         </aside>
     </div>
-    <footer></footer>
+    <footer>
+        <div class="m-foot">
+            <div class="u-into">
+                <div class="logo"></div>
+                <p class="txt">©2014 icourse163.org 浙ICP备08114786号-1<br>icourses.cn 京ICP备12020869号-2 京公网安备110102000459-2</p>
+            </div>
+            <div class="u-links">
+                <div class="links">
+                    <h4>友情链接：</h4>
+                    <a href="#">网易公开课</a>
+                    <a href="#">网易云课堂</a>
+                    <a href="#">中国大学MOOC</a>
+                </div>
+                <div class="links">
+                    <h4>我们：</h4>
+                    <a href="#">关于</a>
+                    <a href="#">联系</a>
+                    <a href="#">关注</a>
+                </div>
+                <div class="links">
+                    <h4>更多：</h4>
+                    <a href="#">常见问题</a>
+                    <a href="#">意见反馈</a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
     <div class="m-mask" style="display: none;">
+        <div class="m-login" style="display: none;">
+            <form action="http://study.163.com/webDev/login.htm" autocomplete="off" method="get" id="form">
+                <legend>
+                    <h2>登录网易云课堂</h2>
+                </legend>
+                <fieldset>
+                    <input type="text" name="account" placeholder=" 账号" id="account">
+                    <input type="password" name="pasword" placeholder=" 密码" id="password">
+                    <input type="button" id="loginBtn" value="登陆">
+                    <span class="closed"></span>
+                </fieldset>
+            </form>
+        </div>
+
         <div class="m-video">
             <h2 class="title">请观看下面的视频</h2>
             <video controls="true" src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" width="830px"></video>
-            <span class="closed">X</span>
+            <i><img src="微专业WEB前端开发作业/peopleIcon.png" alt=""></i><span class="closed">X</span>
         </div>
     </div>
+    <script type="text/javascript" src="md5.js"></script>
     <script src='util.js'></script>
     <script src='Netease.js'></script>
 </body>

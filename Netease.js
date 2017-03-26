@@ -1,14 +1,11 @@
 // 关闭提示
-(function() {
-
-
-    var closeTips = (function() {
+function tipsCookie() {
 
         var tips = document.querySelector('.tips');
         var close = document.querySelector('#close');
 
         var cookie = getCookie('no');
-
+        console.log(cookie);
         if (!!cookie) {
             tips.style.display = 'none';
         }
@@ -17,11 +14,7 @@
             setCookie('no', 1, '5');
             tips.style.display = 'none';
         });
-
-    })();
-
-
-})();
+}
 
 
 
@@ -216,7 +209,7 @@ function changeNav() {
     }
 }
 
-function clickNav(){
+function clickNav() {
     var oMain = document.getElementById('mainbody');
     var aDiv = oMain.getElementsByTagName('span');
     var pagenav = document.getElementsByClassName('pagenav')[0];
@@ -226,39 +219,39 @@ function clickNav(){
 
     oPrev.onclick = function() {
         for (var i = 1; i < oPage.length; i++) {
-            oPage[i].index=i;
+            oPage[i].index = i;
             if (oPage[i].className === 'selected page') {
                 if (aDiv[0].className === 'selected') {
                     createLi(oPage[i].index, 10);
                 } else {
                     createLi(oPage[i].index, 20);
                 }
-                for(var j=0;j<oPage.length;j++){
-                    oPage[j].className='page';
+                for (var j = 0; j < oPage.length; j++) {
+                    oPage[j].className = 'page';
                 }
-                oPage[oPage[i].index-1].className='selected page';
+                oPage[oPage[i].index - 1].className = 'selected page';
                 changeNav();
             }
         }
     };
 
-    oNext.onclick=function(){
-        for (var i = 0; i < oPage.length-1; i++) {
-                oPage[i].index=i;
-                console.log(oPage[i].className);
+    oNext.onclick = function() {
+        for (var i = 0; i < oPage.length - 1; i++) {
+            oPage[i].index = i;
+            console.log(oPage[i].className);
 
             if (oPage[i].className === 'selected page') {
                 console.log('he');
                 if (aDiv[0].className === 'selected') {
-                    createLi(oPage[i].index+2, 10);
+                    createLi(oPage[i].index + 2, 10);
                 } else {
                     console.log('hi');
-                    createLi(oPage[i].index+2, 20);
+                    createLi(oPage[i].index + 2, 20);
                 }
-                for(var j=0;j<oPage.length;j++){
-                    oPage[j].className='page';
+                for (var j = 0; j < oPage.length; j++) {
+                    oPage[j].className = 'page';
                 }
-                oPage[parseInt(oPage[i].index+1)].className='selected page';
+                oPage[parseInt(oPage[i].index + 1)].className = 'selected page';
                 changeNav();
                 return false;
             }
@@ -267,24 +260,153 @@ function clickNav(){
     changePage();
 }
 
-function playVideo(){
-    var oMask=document.getElementsByClassName('m-mask')[0];
-    var oBtn=oMask.getElementsByClassName('closed')[0];
-    var oVideo=document.getElementsByClassName('video')[0];
-    var oImg=oVideo.getElementsByTagName('img')[0];
+function createHotList() {
+    var oList = document.getElementById('hotlist');
+    var oUl = oList.getElementsByTagName('ul')[0];
+    var hotlist;
 
-    oImg.onclick=function(){
-        oMask.style.display='block';
+    ajax({
+        url: "http://study.163.com/webDev/hotcouresByCategory.htm", //请求地址
+        type: 'GET', //请求方式
+        dataType: "json", // 返回值类型的设定
+        async: true, //是否异步
+        success: function(response) {
+            hotlist = JSON.parse(response);
+            for (var i = 0; i < hotlist.length; i++) {
+                var smallPhoto = hotlist[i].smallPhotoUrl;
+                var name = hotlist[i].name;
+                var follow = hotlist[i].learnerCount;
+
+                var hotlistLi = document.createElement('li');
+                hotlistLi.innerHTML = '<p class="crop-technique"><img src="' + smallPhoto + '" alt="pic"></p><h4 class="hotTitle">' + name + '</h4><span class="study">' + follow + '</span>';
+                oUl.appendChild(hotlistLi);
+                oUl.style.height = (hotlistLi.offsetHeight * hotlist.length + 20 * hotlist.length) * 2 + 'px';
+            }
+            oUl.innerHTML += oUl.innerHTML;
+        },
+        fail: function(status) {
+            console.log('状态码为' + status); // 此处为执行失败后的代码
+        }
+    });
+}
+
+function playVideo() {
+    var oMask = document.getElementsByClassName('m-mask')[0];
+    var oBtn = oMask.getElementsByClassName('closed')[1];
+    var mVideo = oMask.getElementsByClassName('m-video')[0];
+    var mLogin = oMask.getElementsByClassName('m-login')[0];
+    var oVideo = document.getElementsByClassName('video')[0];
+    var oImg = oVideo.getElementsByTagName('img')[0];
+
+    oImg.onclick = function() {
+        oMask.style.display = 'block';
+        mVideo.style.display = 'block';
+        mLogin.style.display = 'none';
     };
 
-    oBtn.onclick=function(){
-        oMask.style.display='none';
+    oBtn.onclick = function() {
+        oMask.style.display = 'none';
+        mLogin.style.display = 'none';
+        mVideo.style.display = 'none';
     };
 }
 
-function initial(){
+
+function moveHotList() {
+    var oList = document.getElementById('hotlist');
+    var oUl = oList.getElementsByTagName('ul')[0];
+
+    function move() {
+        if (oUl.style.top === '0px') {
+            oUl.style.top = (-oUl.offsetHeight / 2 + 'px');
+        }
+        oUl.style.top = oUl.offsetTop + 1 + 'px';
+    }
+    setInterval(move, 30);
+}
+
+function follow() {
+    var followBtn = document.getElementById('follow');
+    var oMask = document.getElementsByClassName('m-mask')[0];
+    var oBtn = oMask.getElementsByClassName('closed')[0];
+    var mLogin = oMask.getElementsByClassName('m-login')[0];
+    var mVideo = oMask.getElementsByClassName('m-video')[0];
+
+
+    followBtn.onclick = function() {
+        oMask.style.display = 'block';
+        mVideo.style.display = 'none';
+        mLogin.style.display = 'block';
+        login();
+    };
+
+    oBtn.onclick = function() {
+        oMask.style.display = 'none';
+        mLogin.style.display = 'none';
+        mVideo.style.display = 'none';
+    };
+}
+
+function login() {
+    var loginBtn = document.getElementById('loginBtn');
+    var followBtn = document.getElementById('follow');
+    var oMask = document.getElementsByClassName('m-mask')[0];
+    var mLogin = oMask.getElementsByClassName('m-login')[0];
+    var followed = document.getElementById('followed');
+
+    loginBtn.onclick = function() {
+        var password = document.getElementById('password').value;
+        var account = document.getElementById('account').value;
+
+        ajax({
+            url: "http://study.163.com/webDev/login.htm", //请求地址
+            type: 'GET', //请求方式
+            data: { userName: hex_md5(account), password: hex_md5(password) }, //请求参数
+            dataType: 'boolean', // 返回值类型的设定
+            async: true, //是否异步
+            success: function(response) {
+                var resToInt = parseInt(response);
+                if (resToInt === 1) {
+                    oMask.style.display = 'none';
+                    mLogin.style.display = 'none';
+
+                    setCookie('followSuc', 1, '5');
+
+                } else {
+                    alert('账号密码不匹配！');
+                }
+            },
+            fail: function(status) {
+                console.log('状态码为' + status); // 此处为执行失败后的代码
+            }
+        });
+    };
+}
+
+function followApi(){
+    var cookie = getCookie(' followSuc');
+    console.log(cookie);
+    var followBtn = document.getElementById('follow');
+    var followed = document.getElementById('followed');
+
+    if (!!cookie) {
+        followBtn.style.display = 'none';
+        followed.style.display = 'inline-block';
+    }
+}
+
+function checkCookies(){
+    followApi();
+    tipsCookie();
+}
+
+function initial() {
     clickNav();
     playVideo();
+    createHotList();
+    moveHotList();
+    follow();
+    checkCookies();
 }
 
 initial();

@@ -56,7 +56,7 @@ function ajax(options) {
          * IE标准
          * @type {ActiveXObject}
          */
-        xhr = new ActiveXObject('Microsoft.XMLHTTP')
+        xhr = new ActiveXObject('Microsoft.XMLHTTP');
     }
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4){
@@ -70,7 +70,7 @@ function ajax(options) {
     };
     if (options.type == 'GET'){
         xhr.open("GET",options.url + '?' + params ,options.async);
-        xhr.send(null)
+        xhr.send(null);
     }else if (options.type == 'POST'){
         /**
          *打开请求

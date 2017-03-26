@@ -9,9 +9,11 @@
     cursor: default;
 }
 
-a{
+a {
     cursor: pointer;
 }
+
+
 /* 清除浮动 */
 
 .container:after {
@@ -108,7 +110,7 @@ header nav #logo #normal {
 
 /* 关注 */
 
-header nav #logo #follow a {
+header nav #logo #follow{
     background: #209845;
     color: #fff;
     font-family: SimSun;
@@ -119,6 +121,7 @@ header nav #logo #follow a {
     text-align: center;
     margin-left: 30px;
     padding: 0 8px;
+    cursor: pointer;
 }
 
 header nav #logo #follow a:hover {
@@ -138,6 +141,7 @@ header nav #logo #followed {
     border-radius: 2px;
     padding: 0 8px;
     display: none;
+    margin-left: 10px;
 }
 
 header nav #logo #followed:hover {
@@ -221,7 +225,7 @@ header nav #navbar img {
 #carousel .m-slider li {
     position: absolute;
     opacity: 0;
-    transition: all 5s ease;
+    transition: all 2s ease;
 }
 
 #carousel .m-slider li img {
@@ -501,42 +505,32 @@ header nav #navbar img {
     font-size: 16px;
 }
 
-#mainbody aside .introduce{
+#mainbody aside .introduce {
     border: 1px solid #ccc;
-    width: 220px;
+    width: 250px;
     box-shadow: 1px 1px 1px #ccc;
 }
 
-#mainbody aside .introduce h3{
+#mainbody aside .introduce h3,#mainbody aside .hot h3 {
     font-size: 16px;
     font-weight: normal;
-    padding: 20px;
+    padding: 15px;
     border-bottom: 1px solid #ccc;
 }
 
-#mainbody aside .introduce .video{
+#mainbody aside .introduce .video {
     text-align: center;
     padding: 10px 10px;
 }
 
-#mainbody aside .introduce .video p{
+#mainbody aside .introduce .video p {
     font-size: 14px;
     color: #666;
     padding-bottom: 10px;
 }
 
-#mainbody aside .introduce .video img{
+#mainbody aside .introduce .video img {
     cursor: pointer;
-}
-
-.outer{
-    width: 100%;
-    height: 100%;
-    background: #ccc;
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
 }
 
 .m-video {
@@ -548,11 +542,11 @@ header nav #navbar img {
     background-color: #fff;
 }
 
-.m-video video{
+.m-video video {
     margin-top: 22px;
 }
 
-.m-video .title{
+.m-video .title {
     font-size: 18px;
     color: #444444;
 }
@@ -566,6 +560,7 @@ header nav #navbar img {
     z-index: 10;
     background: url('微专业WEB前端开发作业/background.png')
 }
+
 .m-video .closed {
     position: absolute;
     top: 6px;
@@ -574,5 +569,179 @@ header nav #navbar img {
     height: 22px;
     text-indent: -9999px;
     background: url('微专业WEB前端开发作业/closevideo.png') no-repeat;
+    cursor: pointer;
+}
+
+
+/* 侧栏 */
+
+#mainbody aside .hot {
+    width: 250px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+
+.hot #hotlist {
+    height: 820px;
+    overflow: hidden;
+    position: relative;
+    width: 250px;
+}
+
+.hot #hotlist ul{
+    position: absolute;
+    top: -1600px;
+    /* top: 0; */
+    left: 0;
+}
+.hot #hotlist ul li {
+    font-family: Microsoft Yahei;
+    height: 60px;
+    margin: 20px 0;
+    width: 250px;
+    padding: 0 20px;
+}
+
+.hot #hotlist ul li .crop-technique {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    float: left;
+    overflow: hidden;
+}
+
+.hot #hotlist ul li img {
+    position: absolute;
+    margin: 0;
+    min-height: 60px;
+    margin-left: -20px;
+    cursor: pointer;
+
+}
+
+.hot #hotlist ul li h4 {
+    font-weight: normal;
+    font-size: 14px;
+    color: #373737;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 70px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.hot #hotlist ul li span {
+    font-size: 12px;
+    color: #999999;
+    margin-left: 10px;
+    padding-left: 15px;
+    background: url('微专业WEB前端开发作业/peopleIcon.png') 0px 0px no-repeat;
+}
+
+/* footer */
+footer{
+    background: #1c2025;
+    margin-top: 200px;
+    height: 250px;
+    position: relative;
+}
+
+footer .u-into{
+    position: absolute;
+    left: 200px;
+    top: 80px;
+}
+footer .m-foot .u-into .logo{
+    height: 50px;
+    background: url('微专业WEB前端开发作业/footerlogo.png') 0px 0px no-repeat;
+}
+
+footer .m-foot .u-into .txt{
+    color: #9b9da1;
+    font-size: 12.5px;
+    font-family: Microsoft Yahei;
+}
+
+footer .u-links{
+    display: inline-block;
+    vertical-align: top;
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 700px;
+    width: 600px;
+}
+
+footer .u-links .links{
+    flex: 1;
+}
+footer .u-links h4{
+    color: #9b9da1;
+    font-size: 12.5px;
+    font-family: Microsoft Yahei;
+    font-weight: normal;
+}
+
+footer .u-links a{
+    color: #9b9da1;
+    font-size: 14px; 
+    display: block;
+    font-family: Microsoft Yahei;
+    margin: 10px 0;
+}
+
+footer .u-links a:hover{
+    text-decoration: underline;
+}
+
+.m-mask .m-login{
+    position: relative;
+    margin: 200px auto;
+    width: 400px;
+    height: 300px;
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.m-mask .m-login h2{
+    font-weight: normal;
+    font-family: Microsoft Yahei;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.m-mask .m-login fieldset{
+    border: none;
+    font-family: Microsoft Yahei;
+}
+
+.m-mask .m-login input{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    outline:none;
+}
+
+.m-mask .m-login #loginBtn{
+    width: 100%;
+    background: #1a882a;
+    color: #FFF;
+    border: none;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.m-mask .m-login span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 23px;
+    height: 22px;
+    background: url('微专业WEB前端开发作业/closevideo.png') -6px 0px no-repeat;
     cursor: pointer;
 }
