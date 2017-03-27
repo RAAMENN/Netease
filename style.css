@@ -22,11 +22,6 @@ a {
     clear: both;
 }
 
-body {
-    width: 1640px;
-}
-
-
 /* 顶部提示 */
 
 .tips {
@@ -36,6 +31,7 @@ body {
     height: 40px;
     line-height: 40px;
     padding-left: 160px;
+    width: 1460px;
 }
 
 .tips .content p {
@@ -60,7 +56,7 @@ body {
 /* 头部css设置 */
 
 header {
-    width: 100%;
+    width: 1460px;
 }
 
 
@@ -216,10 +212,10 @@ header nav #navbar img {
 
 /* 轮播图 */
 
-#carousel {
+#carousel{
     position: relative;
-    width: 100%;
-    height: 460px;
+    width: 1460px;
+    height: 400px;
 }
 
 #carousel .m-slider li {
@@ -229,14 +225,14 @@ header nav #navbar img {
 }
 
 #carousel .m-slider li img {
-    max-width: 1640px;
+    max-width: 100%;
 }
 
 #order {
     width: 100%;
     position: absolute;
     text-align: center;
-    top: 380px;
+    bottom: 20px;
 }
 
 #order li {
@@ -313,6 +309,10 @@ header nav #navbar img {
     margin-bottom: 100px;
 }
 
+.gallery img{
+    flex: 1;
+    overflow: hidden;
+}
 .gallery img+img {
     margin-left: 10px;
 }
@@ -321,19 +321,20 @@ header nav #navbar img {
 /* 内容区 */
 
 #mainbody {
-    width: 1400px;
-    margin: 0 auto;
+    width: 100%;
 }
-
+/* 主栏 */
 #mainbody main {
     float: left;
     width: 970px;
+    margin-left: 100px;
 }
-
+/* 侧栏 */
 #mainbody aside {
-    margin-left: 1000px;
+    margin-left: 1100px;
 }
 
+/* 主栏具体设置 */
 #mainbody main h3 {
     width: 400px;
     height: 50px;
@@ -463,6 +464,7 @@ header nav #navbar img {
     display: none;
 }
 
+/* 分页器 */
 #mainbody main ul.pagenav {
     float: right;
     margin-right: 20px;
@@ -505,6 +507,7 @@ header nav #navbar img {
     font-size: 16px;
 }
 
+/* 侧栏详细设置 */
 #mainbody aside .introduce {
     border: 1px solid #ccc;
     width: 250px;
@@ -533,6 +536,7 @@ header nav #navbar img {
     cursor: pointer;
 }
 
+/* 侧栏视频 */
 .m-video {
     position: relative;
     margin: 0 auto;
@@ -573,7 +577,7 @@ header nav #navbar img {
 }
 
 
-/* 侧栏 */
+/* 侧栏热门 */
 
 #mainbody aside .hot {
     width: 250px;
@@ -696,6 +700,7 @@ footer .u-links a:hover{
     text-decoration: underline;
 }
 
+/* 遮罩登陆 */
 .m-mask .m-login{
     position: relative;
     margin: 200px auto;

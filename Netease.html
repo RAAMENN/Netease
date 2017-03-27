@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- 顶部推广 -->
 	<div class="tips">
 		<div class="content">
 			<p>网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！</p>
@@ -15,8 +16,10 @@
 			<span id="close">不再提醒</span>
 		</div>
 	</div>
+    <!-- 头部 -->
     <header>
         <nav>
+            <!-- 左侧logo -->
             <div id="logo">
                 <span id="green">EDU</span>
                 <span id="normal">网易教育产品部</span>
@@ -24,6 +27,7 @@
                 <div id="followed">✓已关注<i></i><a href="#" id="cancel">取消</a></div>
                 <span id="follower">粉丝&nbsp;45</span>
             </div>
+            <!-- 右侧导航和搜索 -->
             <div id="navbar" class="container">
                 <a href="#"><img src="微专业WEB前端开发作业/search.png" alt=""></a>
                 <ul>
@@ -33,6 +37,7 @@
                 </ul>
             </div>
         </nav>
+        <!-- 轮播图 -->
         <div id="carousel">
             <ul class="m-slider">
                     <li class="selected">
@@ -47,6 +52,7 @@
             </ul>
             <ul id="order" class="order"></ul>
         </div>
+        <!-- 产品介绍 -->
         <div id="info">
             <div class="product">
                 <img src="微专业WEB前端开发作业/logo1.png" alt="网易公开课">
@@ -73,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <!-- 图片 -->
         <div class="gallery">
             <img src="微专业WEB前端开发作业/gallery1.png" alt="gallery1">
             <img src="微专业WEB前端开发作业/gallery2.png" alt="gallery2">
@@ -81,7 +88,9 @@
             <img src="微专业WEB前端开发作业/gallery5.png" alt="gallery5">
         </div>
     </header>
+    <!-- 主体内容 -->
     <div id="mainbody" class="container">
+        <!-- 课程 -->
         <main>
             <h3>
                 <span class="selected">产品设计</span>
@@ -100,6 +109,7 @@
 
                 </li> -->
             </ul>
+            <!-- 分页器 -->
             <ul class="pagenav">
                 <li id="prev">&lt;</li>
                 <li class="selected page">1</li>
@@ -108,7 +118,9 @@
                 <li id="next" class="active">&gt;</li>
             </ul>
         </main>
+        <!-- 侧边栏 -->
         <aside>
+            <!-- 视频 -->
             <div class="introduce">
                 <h3>机构介绍</h3>
                 <div class="video">
@@ -116,6 +128,7 @@
                     <img src="微专业WEB前端开发作业/video.png" alt="机构介绍">
                 </div>
             </div>
+            <!-- 热门课程轮播 -->
             <div class="hot">
                 <h3>最热排行</h3>
                 <div id="hotlist">
@@ -128,6 +141,7 @@
             </div>
         </aside>
     </div>
+    <!-- 底部 -->
     <footer>
         <div class="m-foot">
             <div class="u-into">
@@ -156,7 +170,10 @@
             
         </div>
     </footer>
+
+    <!-- 遮罩层 -->
     <div class="m-mask" style="display: none;">
+        <!-- 登陆框 -->
         <div class="m-login" style="display: none;">
             <form action="http://study.163.com/webDev/login.htm" autocomplete="off" method="get" id="form">
                 <legend>
@@ -170,7 +187,7 @@
                 </fieldset>
             </form>
         </div>
-
+        <!-- 视频框 -->
         <div class="m-video">
             <h2 class="title">请观看下面的视频</h2>
             <video controls="true" src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" width="830px"></video>

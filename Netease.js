@@ -5,7 +5,6 @@ function tipsCookie() {
         var close = document.querySelector('#close');
 
         var cookie = getCookie('no');
-        console.log(cookie);
         if (!!cookie) {
             tips.style.display = 'none';
         }
@@ -15,7 +14,6 @@ function tipsCookie() {
             tips.style.display = 'none';
         });
 }
-
 
 
 // 轮播图
@@ -71,6 +69,7 @@ function tipsCookie() {
         };
     }
 })();
+
 // 产品列表标题
 (function() {
     var oMain = document.getElementById('mainbody');
@@ -105,7 +104,8 @@ function tipsCookie() {
     }
 
 })();
-//产品列表
+
+//生成主栏课程
 function createLi(pageNo, type) {
     var oMain = document.getElementById('mainbody');
     var oTitle = oMain.getElementsByClassName('title');
@@ -131,6 +131,7 @@ function createLi(pageNo, type) {
                 oUl.appendChild(oLi);
             }
             changeSize();
+            // 鼠标hover时改变li大小
         },
         fail: function(status) {
             console.log('状态码为' + status); // 此处为执行失败后的代码
@@ -138,7 +139,7 @@ function createLi(pageNo, type) {
     });
 }
 
-
+// 鼠标hover时改变li大小
 function changeSize() {
     var oMain = document.getElementById('mainbody');
     var oUl = oMain.getElementsByTagName('ul')[0];
@@ -165,6 +166,7 @@ function changeSize() {
         };
     }
 }
+
 // 分页
 function changePage() {
     var oMain = document.getElementById('mainbody');
@@ -189,6 +191,7 @@ function changePage() {
     }
 }
 
+// 改变分页器样式
 function changeNav() {
     var pagenav = document.getElementsByClassName('pagenav')[0];
     var oPage = pagenav.getElementsByClassName('page');
@@ -209,6 +212,7 @@ function changeNav() {
     }
 }
 
+// 分页点击事件
 function clickNav() {
     var oMain = document.getElementById('mainbody');
     var aDiv = oMain.getElementsByTagName('span');
@@ -260,6 +264,7 @@ function clickNav() {
     changePage();
 }
 
+// 生成热门课程
 function createHotList() {
     var oList = document.getElementById('hotlist');
     var oUl = oList.getElementsByTagName('ul')[0];
@@ -290,6 +295,7 @@ function createHotList() {
     });
 }
 
+// 播放视频
 function playVideo() {
     var oMask = document.getElementsByClassName('m-mask')[0];
     var oBtn = oMask.getElementsByClassName('closed')[1];
@@ -311,7 +317,7 @@ function playVideo() {
     };
 }
 
-
+// 热门视频滚动
 function moveHotList() {
     var oList = document.getElementById('hotlist');
     var oUl = oList.getElementsByTagName('ul')[0];
@@ -325,6 +331,7 @@ function moveHotList() {
     setInterval(move, 30);
 }
 
+// 点击关注
 function follow() {
     var followBtn = document.getElementById('follow');
     var oMask = document.getElementsByClassName('m-mask')[0];
@@ -347,6 +354,7 @@ function follow() {
     };
 }
 
+// 登陆
 function login() {
     var loginBtn = document.getElementById('loginBtn');
     var followBtn = document.getElementById('follow');
@@ -366,9 +374,12 @@ function login() {
             async: true, //是否异步
             success: function(response) {
                 var resToInt = parseInt(response);
+                console.log(resToInt);
                 if (resToInt === 1) {
                     oMask.style.display = 'none';
                     mLogin.style.display = 'none';
+                    followBtn.style.display = 'none';
+                    followed.style.display = 'inline-block';
 
                     setCookie('followSuc', 1, '5');
 
@@ -383,9 +394,9 @@ function login() {
     };
 }
 
+// 关注后改变样式
 function followApi(){
-    var cookie = getCookie(' followSuc');
-    console.log(cookie);
+    var cookie = getCookie('followSuc');
     var followBtn = document.getElementById('follow');
     var followed = document.getElementById('followed');
 
@@ -395,10 +406,12 @@ function followApi(){
     }
 }
 
+// 检查cookies
 function checkCookies(){
     followApi();
     tipsCookie();
 }
+
 
 function initial() {
     clickNav();

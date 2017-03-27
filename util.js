@@ -1,5 +1,5 @@
 function getCookie(c_name) {
-    var arr = document.cookie.split(';');
+    var arr = document.cookie.split('; ');
 
     for (var i = 0; i < arr.length; i++) {
         var arr2 = arr[i].split('=');
@@ -96,8 +96,6 @@ function getParams(data) {
     for (var param in data){
         arr.push(encodeURIComponent(param) + '=' +encodeURIComponent(data[param]));
     }
-    console.log(arr);
     arr.push(('randomNumber=' + Math.random()).replace('.'));
-    console.log(arr);
     return arr.join('&');
 }
